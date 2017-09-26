@@ -1,0 +1,27 @@
+<div id="tasksPanel" class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Delete domain</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text"
+                        id="delete"
+                        name="inputField"
+                        class="form-control"
+                        placeholder="Enter id of domain"
+                        [(ngModel)]="DomainId"
+                        #delete="ngModel" required>
+                    <div *ngIf="delete.errors && (delete.dirty || delete.touched)" class="alert alert-danger">
+                        <div [hidden]="!delete.errors.required">
+                            Domain is required!
+                        </div>
+                    </div>
+                    <br />
+                    <button class="btn btn-primary" (click)="onDomainDelete()">Delete domain</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

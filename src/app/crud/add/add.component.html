@@ -1,0 +1,33 @@
+<div id="tasksPanel" class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Add domain</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text"
+                        id="add"
+                        class="form-control"
+                        required minlength="9" maxlength="40"
+                        placeholder="Enter new domain"
+                        [(ngModel)]="addDomainValue"
+                        #add="ngModel">
+                    <div *ngIf="add.errors && (add.dirty || add.touched)" class="alert alert-danger">
+                        <div [hidden]="!add.errors.required">
+                            Domain is required!
+                        </div>
+                        <div [hidden]="!add.errors.minlength">
+                            Domain must be at least 9 characters long.
+                        </div>
+                        <div [hidden]="!add.errors.maxlength">
+                            Domain cannot be more than 40 characters long.
+                        </div>
+                    </div>
+                    <br />
+                    <button class="btn btn-primary" (click)="onDomainAdd()">Add domain</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

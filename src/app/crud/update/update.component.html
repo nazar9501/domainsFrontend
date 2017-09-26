@@ -1,0 +1,46 @@
+<div id="tasksPanel" class="panel panel-default">
+    <div class="panel-heading">
+        <h3 class="panel-title">Update domain</h3>
+    </div>
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <input type="text"
+                        id="updateId"
+                        class="form-control"
+                        required
+                        placeholder="Enter domain id"
+                        [(ngModel)]="DomainId"
+                        #updateId="ngModel">
+                    <div *ngIf="updateId.errors && (updateId.dirty || updateId.touched)" class="alert alert-danger">
+                        <div [hidden]="!updateId.errors.required">
+                            Domain id is required!
+                        </div>
+                    </div>
+                    <br />
+                    <input type="text"
+                        id="updateName"
+                        class="form-control"
+                        required minlength="9" maxlength="40"
+                        placeholder="Enter domain name"
+                        [(ngModel)]="DomainName"
+                        #updateName="ngModel">
+                    <br />
+                    <div *ngIf="updateName.errors && (updateName.dirty || updateName.touched)" class="alert alert-danger">
+                        <div [hidden]="!updateName.errors.required">
+                            Domain name is required!
+                        </div>
+                        <div [hidden]="!updateName.errors.minlength">
+                            Domain must be at least 9 characters long.
+                        </div>
+                        <div [hidden]="!updateName.errors.maxlength">
+                            Domain cannot be more than 40 characters long.
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" (click)="onDomainUpdate()">Update domain</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
